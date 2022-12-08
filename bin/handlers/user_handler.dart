@@ -31,7 +31,7 @@ class UserHandler {
               'id': current['id'],
               'user_name': current['user_name'],
               'is_gymbro_admin': current['is_gymbro_admin'],
-              'is_gym_owner': current['is_gymbro_owner'],
+              'is_gym_owner': current['is_gym_owner'],
             },
           );
         } else {
