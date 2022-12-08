@@ -5,15 +5,18 @@ import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
 import 'handlers/dbrelay.dart';
+import 'handlers/user_handler.dart';
 
 // Configure routes.
 
 void main(List<String> args) async {
   final queryHandler = DBRelay();
+  final userHandler = UserHandler();
 
   print(pid);
   final app = Router();
   app.post("/dbRelay", queryHandler.graphqlRelay);
+  app.post("/eventHandler", userHandler.handle);
 
   final appPipe = const Pipeline()
       .addMiddleware(
@@ -31,8 +34,8 @@ void main(List<String> args) async {
 
   await serve(
     appPipe,
-    'localhost',
-    8080,
+    InternetAddress.anyIPv4,
+    543,
   );
   print('server created');
 }

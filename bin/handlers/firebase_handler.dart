@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:firebase_admin/firebase_admin.dart';
 import 'package:shelf/shelf.dart';
 
-class FirebaseHandler {
+abstract class FirebaseHandler {
   static final _firebase = FirebaseAdmin.instance.initializeApp(
     AppOptions(
       credential: Credentials.applicationDefault()!,
     ),
   );
 
-  Future<Response> setClaims({
+  static Future<Response> setClaims({
     required String uuid,
     required Map<String, dynamic> claims,
   }) async {
