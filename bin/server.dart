@@ -16,7 +16,7 @@ void main(List<String> args) async {
   print(pid);
   final app = Router();
   app.post("/dbRelay", queryHandler.graphqlRelay);
-  app.post("/eventHandler", userHandler.handle);
+  //app.post("/eventHandler", userHandler.handle);
 
   final appPipe = const Pipeline()
       .addMiddleware(
