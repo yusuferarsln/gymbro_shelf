@@ -35,7 +35,7 @@ void main(List<String> args) async {
   await serve(
     appPipe,
     InternetAddress.anyIPv4,
-    443,
+    5050,
   );
   print('server created');
 }
