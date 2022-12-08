@@ -26,7 +26,7 @@ class UserHandler {
             old['is_gymbro_admin'] != current['is_gymbro_admin'] ||
             old['is_gym_owner'] != current['is_gym_owner']) {
           return await FirebaseHandler.setClaims(
-            uuid: current['fuuid'],
+            uuid: current['uuid'],
             claims: {
               'id': current['id'],
               'user_name': current['user_name'],
